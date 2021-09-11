@@ -1,147 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>戴俊杰💘王瑶瑶</title>
-<link href="favicon.ico" rel="shortcut icon" />
-<style>
-body{
-  overflow: hidden;
-  margin: 0;
-}
-h1{
-  position: fixed;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  transform:translateY(-50%);
-  font-family: 'Love Ya Like A Sister', cursive;
-  font-size: 40px;
-  color: #c70012;
-  padding: 0 20px;
-}
-h1 span{
-    font-size:25px;
-}
-</style>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css" />
+    
+    <style type="text/css">
+      body{width: 100%;height: 100%;margin: 0;padding: 0;}
+      body, .p1, .p2 {font-family: "Open Sans","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",Arial,Verdana,Tahoma,sans-serif;line-height: 24px;font-size: 20px;}
+      .bg{background-image: url('https://ae01.alicdn.com/kf/Ha2a69c9d2f3e41078c9ce486c7a9a2cbZ.png');background-size: 100%;height: 736px;margin: 0 auto;float: none;}
+      .avatar{padding: 294px 29px 120px 29px;}
+      .avatar img{width: 99px;height: 99px;border-radius:100%;border: solid 5px rgba(255, 255, 255, 0.5);}
+      .avatar #nan{float: left;}
+      .avatar #nv{float: right;}
+      .text-center{text-align: center;}
+      .btn{color: #fff;font-size: 24px;padding: 10px 120px;border: 1px solid #f8f8f8;border-radius: 10px;}
+      .btn:hover{background: #9B59B6; border: 0 none;color: #fff;}
+      .btn:visited {color: #fff;border: 1px solid #f8f8f8;}
+      .btn:active{background: #1BA1E2; border: 0 none;color: #fff;}
+    </style>
+  </head>
 
-</head>
-<body>
-<h1 id="h1"></h1>
-<canvas></canvas> 
+  <body>
+    <div class="layui-row">  
+      <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 bg float-center">
+        <div class="avatar">
+            <img id="nan" src="http://q.qlogo.cn/headimg_dl?dst_uin=996265368&spec=100">
+            <img id="nv" src="http://q.qlogo.cn/headimg_dl?dst_uin=1599175528&spec=100">
+        </div>
+        <div class="text-center"><p>我们相识相恋了</p><p id="elapseClock"></p></div>
+        <div class="text-center" style="margin-top: 120px;">
+          <a class="btn">甜蜜双击</a>
+        </div>
+      </div>
+    </div>
+    <audio autoplay="autopaly">
+    <source src="http://love.iwyy.top/haohaode.mp3" type="audio/mp3">
+    </audio>
+    <script src="https://www.layuicdn.com/layui/layui.js"></script>
+    <!--您的Layui代码start-->
+    <script type="text/javascript">
+    layui.use(['layer'], function() {
+      var $ = layui.$
+      ,layer = layui.layer;
 
-<script>
-var canvas = document.querySelector("canvas"),
-  ctx = canvas.getContext("2d");
+      $(document).ready(function() {
+        layer.msg('欢迎来到我们的小窝！');
+        var together = new Date();
+        together.setFullYear(2021,5,13);   //时间年月日
+        together.setHours(2);            //小时  
+        together.setMinutes(2);          //分钟
+        together.setSeconds(0);          //秒前一位
+        together.setMilliseconds(0);     //秒第二位
 
-var ww,wh;
+        timeElapse(together);
+        setInterval(function () {
+          timeElapse(together);
+        }, 1000);
+        
+        $('.btn').click(function(event) {
+          // console.log('test');
+          layer.msg('谢谢你陌生人，同样也祝你幸福！');
+          //window.location.href='https://www.aeink.com';
+        });
+         
+      });
+      var options = {timeout: 3000};
+      // console.log(_DEFAULT_CITY);
+      function timeElapse(date){
+        var current = Date();
+        var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
+        var days = Math.floor(seconds / (3600 * 24));
+        seconds = seconds % (3600 * 24);
+        var hours = Math.floor(seconds / 3600);
+        if (hours < 10) {
+          hours = "0" + hours;
+        }
+        seconds = seconds % 3600;
+        var minutes = Math.floor(seconds / 60);
+        if (minutes < 10) {
+          minutes = "0" + minutes;
+        }
+        seconds = seconds % 60;
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+        var result = "<span class=\"digit\">" + days + "</span> 天 <span class=\"digit\">" + hours + "</span> 时 <span class=\"digit\">" + minutes + "</span> 分 <span class=\"digit\">" + seconds + "</span> 秒..."; 
+        $("#elapseClock").html(result);
+      }
+    });
+    </script>
+  </body>
 
-function onResize(){
-  ww = canvas.width = window.innerWidth;
-  wh = canvas.height = window.innerHeight;
-}
-
-ctx.strokeStyle = "red";
-ctx.shadowBlur = 25;
-ctx.shadowColor = "hsla(0, 100%, 60%,0.5)";
-
-var precision = 100;
-var hearts = [];
-var mouseMoved = false;
-function onMove(e){
-  mouseMoved = true;
-  if(e.type === "touchmove"){
-    hearts.push(new Heart(e.touches[0].clientX, e.touches[0].clientY));
-    hearts.push(new Heart(e.touches[0].clientX, e.touches[0].clientY));
-  }
-  else{
-    hearts.push(new Heart(e.clientX, e.clientY));
-    hearts.push(new Heart(e.clientX, e.clientY));
-  }
-}
-
-var Heart = function(x,y){
-  this.x = x || Math.random()*ww;
-  this.y = y || Math.random()*wh;
-  this.size = Math.random()*2 + 1;
-  this.shadowBlur = Math.random() * 10;
-  this.speedX = (Math.random()+0.2-0.6) * 8;
-  this.speedY = (Math.random()+0.2-0.6) * 8;
-  this.speedSize = Math.random()*0.05 + 0.01;
-  this.opacity = 1;
-  this.vertices = [];
-  for (var i = 0; i < precision; i++) {
-    var step = (i / precision - 0.5) * (Math.PI * 2);
-    var vector = {
-      x : (15 * Math.pow(Math.sin(step), 3)),
-      y : -(13 * Math.cos(step) - 5 * Math.cos(2 * step) - 2 * Math.cos(3 * step) - Math.cos(4 * step)) 
-    }
-    this.vertices.push(vector);
-  }
-}
-
-Heart.prototype.draw = function(){
-  this.size -= this.speedSize;
-  this.x += this.speedX;
-  this.y += this.speedY;
-  ctx.save();
-  ctx.translate(-1000,this.y);
-  ctx.scale(this.size, this.size);
-  ctx.beginPath();
-  for (var i = 0; i < precision; i++) {
-    var vector = this.vertices[i];
-    ctx.lineTo(vector.x, vector.y);
-  }
-  ctx.globalAlpha = this.size;
-  ctx.shadowBlur = Math.round((3 - this.size) * 10);
-  ctx.shadowColor = "hsla(0, 100%, 60%,0.5)";
-  ctx.shadowOffsetX = this.x + 1000;
-  ctx.globalCompositeOperation = "screen"
-  ctx.closePath();
-  ctx.fill()
-  ctx.restore();
-};
-
-
-function render(a){
-  requestAnimationFrame(render);
-
-  hearts.push(new Heart())
-  ctx.clearRect(0,0,ww,wh);
-  for (var i = 0; i < hearts.length; i++) {
-    hearts[i].draw();
-    if(hearts[i].size <= 0){
-      hearts.splice(i,1);
-      i--;
-    }
-  }
-}
-
-
-onResize();
-window.addEventListener("mousemove", onMove);
-window.addEventListener("touchmove", onMove);
-window.addEventListener("resize", onResize);
-requestAnimationFrame(render);
-
-window.onload=function starttime(){
-        time(h1,'2021/5/13');     // 在一起的时间
-        ptimer = setTimeout(starttime,1000); // 添加计时器
-}
-
-    function time(obj,futimg){
-        var nowtime = new Date().getTime(); // 现在时间转换为时间戳
-        var futruetime =  new Date(futimg).getTime(); // 未来时间转换为时间戳
-        var msec = nowtime-futruetime; // 毫秒 未来时间-现在时间
-        var time = (msec/1000);  // 毫秒/1000
-        var day = parseInt(time/86400); // 天  24*60*60*1000 
-        var hour = parseInt(time/3600)-24*day;    // 小时 60*60 总小时数-过去的小时数=现在的小时数 
-        var minute = parseInt(time%3600/60); // 分 -(day*24) 以60秒为一整份 取余 剩下秒数 秒数/60 就是分钟数
-        var second = parseInt(time%60);  // 以60秒为一整份 取余 剩下秒数
-        obj.innerHTML="瑶瑶<br>咱们自20210513认识，已经有<br>"+day+"天"+hour+"小时"+minute+"分"+second+"秒"+"了<br><br><span>有时候心动就是那么一瞬间，我从没想到还会有你出现在我的余生里。<br><br>不管面临多大的生活压力,不管未来的路如何崎岖.<br><br>不管经历过什么,我都不会放弃你，你就是我爱情的百分之百.<br><br>自从有了你，我的世界有了颜色。希望我们以后一直像这个计时器一样，一直走下去！！.</span>"
-        return true;
-    }
-</script>
-</body>
 </html>
