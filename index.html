@@ -1,405 +1,148 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>超可爱的叮当猫动画</title>
+<meta charset="utf-8">
+<title>戴俊杰💘王瑶瑶</title>
+<link href="favicon.ico" rel="shortcut icon" />
 <style>
-	body{
-		margin: 0;
-		background: lightblue;
-	}
-	/*哆啦A梦*/
-	.doa{
-		position: relative;
-		top: 100px;
-	}
-	.head{
-		margin: 0 auto;
-		width: 400px;
-		height: 350px;
-		background: #008ee3;
-		position: relative;
-		border-radius: 50% 50% 25% 25% / 55% 55% 45% 45%;
-	}
-	.head:hover .face>div:first-child div{
-		left: 0px;
-		transition: all 1s;
-	}
-	.head:hover .face>div:first-child div div{
-		left: 0px;
-		transition: all 1s;
-	}
-
-	.head:hover{
-		
-	}
-	.face{
-		width: 310px;
-		height: 260px;
-		background: snow;
-		border-radius: 50% 50% 25% 25% / 55% 55% 45% 45%;
-		position: relative;
-		top: 90px;
-		left: 45px;
-	}
-	/*左眼眶*/
-	.face>div:first-child{
-		width: 80px;
-		height: 100px;
-		border-radius: 50%;
-		border:2px #000 solid;
-		background: snow;
-		float: left;
-		position: relative;
-		top:-40px;
-		left: 71px;
-		z-index: 50;
-	}
-	/*右眼眶*/
-	.face>div:last-child{
-		width: 80px;
-		height: 100px;
-		border-radius: 50%;
-		border:2px #000 solid;
-		background: snow;
-		float: left;
-		position: relative;
-		top:-40px;
-		left: 71px;
-		z-index: 50;
-	}
-	/*左眼珠1*/
-	.face>div:first-child div{
-		width: 20px;
-		height: 25px;
-		background: #000;
-		border-radius: 50%;
-		position: absolute;
-		top: 45px;
-		left: 60px;
-	}
-	/*左瞳孔*/
-	.face>div:first-child div div{
-		width: 10px;
-		height: 10px;
-		background: #ffffff;
-		border-radius: 50%;
-		position: absolute;
-		top: 7px;
-		left: 10px;
-	}
-	/*右眼珠*/
-	.face>div:last-child div{
-		width: 20px;
-		height: 25px;
-		background: #000;
-		border-radius: 50%;
-		position: absolute;
-		top: 45px;
-	}
-	/*右瞳孔*/
-	.face>div:last-child div div{
-		width: 10px;
-		height: 10px;
-		background: #ffffff;
-		border-radius: 50%;
-		position: absolute;
-		top: 7px;
-	}
-	.nose{
-		width: 30px;
-		height: 30px;
-		border-radius: 50%;
-		background: #c70000;
-		position: absolute;
-		top: 130px;
-		left: 50%;
-		margin-left: -15px;
-		z-index: 10;
-	}
-	.nose div{
-		width: 10px;
-		height: 10px;
-		border-radius: 50%;
-		position: absolute;
-		background: #ffffff;
-		top: 10px;
-		margin-left: 20px;
-		z-index: 10;
-	}
-	.nose1{
-		width: 2px;
-		height: 130px;
-		background: #000;
-		position: absolute;
-		top: 160px;
-		left: 50%;
-		margin-left: -1px;
-		z-index: 10;
-	}
-	.mouth{
-		width: 250px;
-		height: 200px;
-		border-radius: 50%;
-		background: snow;
-		border-bottom: 2px #000 solid;
-		margin: -230px auto;
-		position: relative;
-	}
-	.mouth div:first-child{
-		width: 82px;
-		height: 2px;
-		background: #000;
-		position: absolute;
-		z-index: 1000;
-		top: -25px;
-		left: 6px;
-		display: none;
-	}
-	.mouth div:nth-child(2){
-		width: 82px;
-		height: 2px;
-		background: #000;
-		position: absolute;
-		z-index: 1000;
-		top: -25px;
-		left: 90px;
-		display: none;
-	}
-	.mouth:hover{
-		border-radius: 0;
-		width: 180px;
-		height: 200px;
-	}
-	.mouth:hover div:first-child,.mouth:hover div:nth-child(2){
-		display: block;
-	}
-	.neck{
-		width: 330px;
-		height: 200px;
-		border-radius: 50% 50% 20% 20% / 50% 50% 50% 50%;
-		background: #e30000;
-		margin: 80px auto;
-		z-index: 100;
-	}
-	.neck div:first-child{
-		border: 2px #000 solid;
-		border-radius: 50%;
-		width: 40px;
-		height: 40px;
-		background: #ffdd2e;
-		position: absolute;
-		top: 350px;
-		left: 50%;
-		margin-left: -22px;
-		transition: all 1s;
-	}
-	.neck div:nth-child(2){
-		border: 2px #000 solid;
-		width: 44px;
-		height: 5px;
-		background: #ffdd2e;
-		position: absolute;
-		left: 50%;
-		margin-left: -24px;
-		top: 363px;
-		border-radius: 5px;
-		transition: all 1s;
-	}
-	.neck div:nth-child(3){
-		width: 8px;
-		height: 8px;
-		border: 2px #000 solid;
-		position: absolute;
-		background: #6c5844;
-		border-radius: 50%;
-		left: 50%;
-		margin-left: -6px;
-		top: 375px;
-		transition: all 1s;
-	}
-	.neck div:nth-child(4){
-		width: 2px;
-		height: 8px;
-		background: #000;
-		position: absolute;
-		left: 50%;
-		margin-left: -1px;
-		top: 385px;
-		transition: all 1s;
-	}
-	.neck:hover div:first-child{
-		width: 60px;
-		height: 60px;
-		left: 50%;
-		margin-left: -30px;
-	}
-	.neck:hover div:nth-child(2){
-		width: 66px;
-		height: 7.5px;
-		left: 50%;
-		margin-left: -33px;
-	}
-	.neck:hover div:nth-child(3){
-		width: 12px;
-		height: 12px;
-		left: 50%;
-		margin-left: -6px;
-		top: 385px;
-	}
-	.neck:hover div:nth-child(4){
-		width: 2px;
-		height: 12px;
-		left: 50%;
-		margin-left: 1px;
-		top: 400px;
-	}
-	.beard .left div:first-child{
-		width: 120px;
-		height: 40px;
-		border-top: 2px #000 solid;
-		border-radius: 10% 90% 10% 90% / 10% 90% 10% 90%;
-		position: absolute;
-		left: 50%;
-		top: 140px;
-		margin-left: -170px;
-		z-index: 100;
-	}
-	.beard .left div:nth-child(2){
-		width: 120px;
-		height: 40px;
-		border-top: 2px #000 solid;
-		border-radius: 10% 90% 10% 90% / 30% 70% 40% 60%;
-		position: absolute;
-		left: 50%;
-		top: 170px;
-		margin-left: -170px;
-		z-index: 100;
-	}
-	.beard .left div:last-child{
-		width: 120px;
-		height: 40px;
-		border-top: 2px #000 solid;
-		border-radius: 10% 90% 10% 90% / 40% 60% 10% 90%;
-		position: absolute;
-		left: 50%;
-		top: 200px;
-		margin-left: -170px;
-		z-index: 100;
-	}
-
-	.beard .right div:first-child{
-		width: 120px;
-		height: 40px;
-		border-top: 2px #000 solid;
-		border-radius: 90% 10% 90% 10% / 90% 10% 90% 10%;
-		position: absolute;
-		left: 50%;
-		top: 140px;
-		margin-left: 50px;
-		z-index: 100;
-	}
-	.beard .right div:nth-child(2){
-		width: 120px;
-		height: 40px;
-		border-top: 2px #000 solid;
-		border-radius: 90% 10% 90% 10% / 70% 30% 60% 40%;
-		position: absolute;
-		left: 50%;
-		top: 170px;
-		margin-left: 50px;
-		z-index: 100;
-	}
-	.beard .right div:last-child{
-		width: 120px;
-		height: 40px;
-		border-top: 2px #000 solid;
-		border-radius: 90% 10% 90% 10% / 60% 40% 90% 10%;
-		position: absolute;
-		left: 50%;
-		top: 200px;
-		margin-left: 50px;
-		z-index: 100;
-	}
-	.beard span{
-		display: block;
-		width: 60px;
-		height: 3.5px;
-		background: #ffffff;
-		border-radius: 4px;
-		position: absolute;
-		top: 352px;
-		left: 50%;
-		margin-left: -105px;
-	}
+body{
+  overflow: hidden;
+  margin: 0;
+}
+h1{
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  transform:translateY(-50%);
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 40px;
+  color: #c70012;
+  padding: 0 20px;
+}
+h1 span{
+    font-size:20px;
+}
 </style>
+
 </head>
 <body>
-<div style="text-align:center;clear:both;">
-<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
-<script src="/follow.js" type="text/javascript"></script>
-</div>
-<!-- 哆啦A梦 -->
-<div class="doa">
-	
-	<!-- 头 -->
-	
-	<div class="head">
-		<div class="face">
-			<div>
-				<div>
-					<div></div>
-				</div>
-				<div>
-					<div></div>
-				</div>
-			</div>
-			<div>
-				<div>
-					<div></div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="nose">
-			<div></div>
-		</div>
-		<div class="nose1"></div>
-	</div>
-	
-	<!-- 嘴 -->
+<h1 id="h1"></h1>
+<canvas></canvas> 
 
-	<div class="mouth">
-		<div></div>
-		<div></div>
-	</div>
+<script>
+var canvas = document.querySelector("canvas"),
+  ctx = canvas.getContext("2d");
 
-	<!-- 脖 -->
-	
-	<div class="neck">
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-	</div>
+var ww,wh;
 
-	<!-- 胡须 -->
+function onResize(){
+  ww = canvas.width = window.innerWidth;
+  wh = canvas.height = window.innerHeight;
+}
 
-	<div class="beard">
-		<div class="left">
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-		<div class="right">
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-		<span></span>
-	</div>
-</div>
+ctx.strokeStyle = "red";
+ctx.shadowBlur = 25;
+ctx.shadowColor = "hsla(0, 100%, 60%,0.5)";
 
+var precision = 100;
+var hearts = [];
+var mouseMoved = false;
+function onMove(e){
+  mouseMoved = true;
+  if(e.type === "touchmove"){
+    hearts.push(new Heart(e.touches[0].clientX, e.touches[0].clientY));
+    hearts.push(new Heart(e.touches[0].clientX, e.touches[0].clientY));
+  }
+  else{
+    hearts.push(new Heart(e.clientX, e.clientY));
+    hearts.push(new Heart(e.clientX, e.clientY));
+  }
+}
+
+var Heart = function(x,y){
+  this.x = x || Math.random()*ww;
+  this.y = y || Math.random()*wh;
+  this.size = Math.random()*2 + 1;
+  this.shadowBlur = Math.random() * 10;
+  this.speedX = (Math.random()+0.2-0.6) * 8;
+  this.speedY = (Math.random()+0.2-0.6) * 8;
+  this.speedSize = Math.random()*0.05 + 0.01;
+  this.opacity = 1;
+  this.vertices = [];
+  for (var i = 0; i < precision; i++) {
+    var step = (i / precision - 0.5) * (Math.PI * 2);
+    var vector = {
+      x : (15 * Math.pow(Math.sin(step), 3)),
+      y : -(13 * Math.cos(step) - 5 * Math.cos(2 * step) - 2 * Math.cos(3 * step) - Math.cos(4 * step)) 
+    }
+    this.vertices.push(vector);
+  }
+}
+
+Heart.prototype.draw = function(){
+  this.size -= this.speedSize;
+  this.x += this.speedX;
+  this.y += this.speedY;
+  ctx.save();
+  ctx.translate(-1000,this.y);
+  ctx.scale(this.size, this.size);
+  ctx.beginPath();
+  for (var i = 0; i < precision; i++) {
+    var vector = this.vertices[i];
+    ctx.lineTo(vector.x, vector.y);
+  }
+  ctx.globalAlpha = this.size;
+  ctx.shadowBlur = Math.round((3 - this.size) * 10);
+  ctx.shadowColor = "hsla(0, 100%, 60%,0.5)";
+  ctx.shadowOffsetX = this.x + 1000;
+  ctx.globalCompositeOperation = "screen"
+  ctx.closePath();
+  ctx.fill()
+  ctx.restore();
+};
+
+
+function render(a){
+  requestAnimationFrame(render);
+
+  hearts.push(new Heart())
+  ctx.clearRect(0,0,ww,wh);
+  for (var i = 0; i < hearts.length; i++) {
+    hearts[i].draw();
+    if(hearts[i].size <= 0){
+      hearts.splice(i,1);
+      i--;
+    }
+  }
+}
+
+
+onResize();
+window.addEventListener("mousemove", onMove);
+window.addEventListener("touchmove", onMove);
+window.addEventListener("resize", onResize);
+requestAnimationFrame(render);
+
+window.onload=function starttime(){
+        time(h1,'2021/5/13');     // 在一起的时间
+        ptimer = setTimeout(starttime,1000); // 添加计时器
+}
+
+    function time(obj,futimg){
+        var nowtime = new Date().getTime(); // 现在时间转换为时间戳
+        var futruetime =  new Date(futimg).getTime(); // 未来时间转换为时间戳
+        var msec = nowtime-futruetime; // 毫秒 未来时间-现在时间
+        var time = (msec/1000);  // 毫秒/1000
+        var day = parseInt(time/86400); // 天  24*60*60*1000 
+        var hour = parseInt(time/3600)-24*day;    // 小时 60*60 总小时数-过去的小时数=现在的小时数 
+        var minute = parseInt(time%3600/60); // 分 -(day*24) 以60秒为一整份 取余 剩下秒数 秒数/60 就是分钟数
+        var second = parseInt(time%60);  // 以60秒为一整份 取余 剩下秒数
+        obj.innerHTML="瑶瑶<br>咱俩在一起的时间已经：<br>"+day+"天"+hour+"小时"+minute+"分"+second+"秒"+"了<br><span>有时候心动就是那么一瞬间，我从没想到还会有你出现在我的余生里。<br>不管面临多大的生活压力,不管未来的路如何崎岖.<br>不管经历过什么,我都不会放弃你，你就是我爱情的百分之百.<br>自从有了你，我的世界有了颜色。希望我们以后一直像这个计时器一样，一直走下去！！.</span>"
+        return true;
+    }
+</script>
 
 </body>
 </html>
