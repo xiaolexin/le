@@ -12,7 +12,7 @@
       body{width: 100%;height: 100%;margin: 0;padding: 0;}
       body, .p1, .p2 {font-family: "Open Sans","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",Arial,Verdana,Tahoma,sans-serif;line-height: 24px;font-size: 20px;}
       .bg{background-image: url('http://cdn.qmwenhua.com/static/states/mp3/bg.png');background-size: 100%;height: 736px;margin: 0 auto;float: none;}
-      .avatar{padding: 294px 29px 120px 29px;}
+      .avatar{padding: 226px 29px 120px 29px}
       .avatar img{width: 99px;height: 99px;border-radius:100%;border: solid 5px rgba(255, 255, 255, 0.5);}
       .avatar #nan{float: left;}
       .avatar #nv{float: right;}
@@ -29,12 +29,49 @@
          transform: rotate(1turn);
        }
      }
-    .beaduy_font {
-    background: linear-gradient(90deg, #ead39b 0%, #c49452 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    }
+    .blink{
+                position:relative;
+                animation:mymove 5s infinite;
+                -webkit-animation:mymove 5s infinite; /*Safari and Chrome*/
+                animation-direction:alternate;/*轮流反向播放动画。*/
+                animation-timing-function: ease-in-out; /*动画的速度曲线*/
+                /* Safari 和 Chrome */
+                -webkit-animation:mymove 5s infinite;
+                -webkit-animation-direction:alternate;/*轮流反向播放动画。*/
+                -webkit-animation-timing-function: ease-in-out; /*动画的速度曲线*/
+            }
+            @keyframes mymove
+            {
+                0%{
+                transform: scale(1);  /*开始为原始大小*/
+                }
+                25%{
+                    transform: scale(1.1); /*放大1.1倍*/
+                }
+                50%{
+                    transform: scale(1);
+                }
+                75%{
+                    transform: scale(1.1);
+                }
+             
+            }
+             
+            @-webkit-keyframes mymove /*Safari and Chrome*/
+            {
+                0%{
+                transform: scale(1);  /*开始为原始大小*/
+                }
+                25%{
+                    transform: scale(1.1); /*放大1.1倍*/
+                }
+                50%{
+                    transform: scale(1);
+                }
+                75%{
+                    transform: scale(1.1);
+                }
+            }
       
     </style>
     </head>
@@ -46,9 +83,9 @@
             <img id="nan" class="Rotation" src="http://q.qlogo.cn/headimg_dl?dst_uin=21450352&spec=100">
             <img id="nv" class="Rotation" src="http://q.qlogo.cn/headimg_dl?dst_uin=1518335481&spec=100">
         </div>
-        <div class="avatar" style="margin-top: -292px;margin-bottom: -55px;">
-            <p style="float:left;margin-left: 25px;" class="beaduy_font">戴俊杰</p>
-            <p style="float:right;margin-right: 25px;" class="beaduy_font">许江芳</p>
+        <div class="avatar" style="margin-top: -252px;margin-bottom: -55px;">
+            <p style="float:left;margin-left: 25px;" class="blink">戴俊杰</p>
+            <p style="float:right;margin-right: 25px;" class="blink">许江芳</p>
         </div>
         <div class="text-center"><p>我们相恋了</p><p id="elapseClock"></p></div>
         <div class="text-center" style="margin-top: 120px;">
